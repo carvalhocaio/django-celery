@@ -15,7 +15,11 @@ docker run -d --name redis-server -p 6379:6379 redis
 **execute celery**
 
 ```terminal
-python -m celery -A core  worker -l info
+<!-- execute celery -->
+celery -A core worker -l info
+
+<!-- execute flower -->
+celery --broker=redis://localhost:6379/0 flower -A tasks
 ```
 
 ---
